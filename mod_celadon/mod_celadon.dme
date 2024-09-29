@@ -34,6 +34,7 @@
 #include "lobby_celadon/_lobby_celadon.dme"
 
 // --- OBJECTS --- //
+#include "ammo_workbench/_ammo_workbench.dme"
 #include "barsigns/_barsigns.dme"
 #include "boarding/_boarding.dme"
 #include "bongs/_bongs.dme"

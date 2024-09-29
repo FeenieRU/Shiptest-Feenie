@@ -1,0 +1,9 @@
+#ifndef MODPACK_CELADON_AMMO_WORKBENCH
+#define MODPACK_CELADON_AMMO_WORKBENCH
+
+#include "_ammo_workbench.dm"
+
+#include "code/ammo_workbench.dm"
+#include "code/design_disks.dm"
+
+#endif

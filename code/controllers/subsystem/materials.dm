@@ -15,6 +15,11 @@ SUBSYSTEM_DEF(materials)
 	///Dictionary of category || list of material types, mostly used by rnd machines like autolathes.
 	var/list/materialtypes_by_category
 	///List of stackcrafting recipes for materials using rigid materials
+	// [CELADON-ADD] - CELADON_AMMO_WORKBENCH
+	var/list/materials_by_type
+	var/list/materialids_by_type
+	var/list/materialids_by_category
+	// [/CELADON-ADD] - CELADON_AMMO_WORKBENCH
 	var/list/rigid_stack_recipes = list(
 		new /datum/stack_recipe("Chair", /obj/structure/chair/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
 		new /datum/stack_recipe("Toilet", /obj/structure/toilet/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
@@ -27,6 +32,11 @@ SUBSYSTEM_DEF(materials)
 	materials = list()
 	materials_by_category = list()
 	materialtypes_by_category = list()
+	// [CELADON-ADD] - CELADON_AMMO_WORKBENCH
+	materials_by_type = list()
+	materialids_by_type = list()
+	materialids_by_category = list()
+	// [/CELADON-ADD] - CELADON_AMMO_WORKBENCH
 	for(var/type in subtypesof(/datum/material))
 		var/datum/material/ref = new type
 		materials[type] = ref
