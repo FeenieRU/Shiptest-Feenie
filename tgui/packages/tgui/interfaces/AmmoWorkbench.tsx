@@ -19,8 +19,8 @@ import {
 } from '../components';
 import { Window } from '../layouts';
 
-export const AmmoWorkbench = (props) => {
-  const [tab, setTab] = useSharedState('tab', 1);
+export const AmmoWorkbench = (props, content) => {
+  const [tab, setTab] = useSharedState(content, 'tab', 1);
   return (
     <Window
       width={600}
