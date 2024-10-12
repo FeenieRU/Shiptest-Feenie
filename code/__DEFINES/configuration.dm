@@ -4,6 +4,6 @@
 
 //flags
 /// can't edit
-#define CONFIG_ENTRY_LOCKED 1
+#define CONFIG_ENTRY_LOCKED (1<<0)
 /// can't see value
-#define CONFIG_ENTRY_HIDDEN 2
+#define CONFIG_ENTRY_HIDDEN (1<<1)
