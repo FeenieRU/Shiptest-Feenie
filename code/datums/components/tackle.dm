@@ -270,11 +270,10 @@
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/T = target
-		var/suit_slot = T.get_item_by_slot(ITEM_SLOT_OCLOTHING)
 
 		if(isnull(T.wear_suit) && isnull(T.w_uniform)) // who honestly puts all of their effort into tackling a naked guy?
 			defense_mod += 2
-		if(suit_slot && (istype(suit_slot,/obj/item/clothing/suit/space/hardsuit)))
+		if(T.mob_negates_gravity())
 			defense_mod += 1
 		if(T.is_shove_knockdown_blocked()) // riot armor and such
 			defense_mod += 5
@@ -289,6 +288,12 @@
 
 		// [CELADON-ADD] - TAJARA - Tajara without tails are off-balance
 		if(istajara(T))
+			if(!T.getorganslot(ORGAN_SLOT_TAIL))
+				defense_mod -= 1
+		// [/CELADON-ADD]
+
+		// [CELADON-ADD] - CELADON_RIOL
+		if(isriol(T))
 			if(!T.getorganslot(ORGAN_SLOT_TAIL))
 				defense_mod -= 1
 		// [/CELADON-ADD]

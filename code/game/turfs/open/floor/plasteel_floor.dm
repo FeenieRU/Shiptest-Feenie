@@ -1,7 +1,7 @@
 /turf/open/floor/plasteel
 	// [CELADON-EDIT] - CELADON_STRUCTURES
 	// icon = 'icons/turf/floors/tiles.dmi' // CELADON-EDIT - ORIGINAL
-	icon = 'mod_celadon/structures/icons/tiles.dmi'
+	icon = 'mod_celadon/_storge_icons/icons/structures/tiles.dmi'
 	// [/CELADON-EDIT]
 	base_icon_state = "tiled_gray"
 	icon_state = "tiled_gray"
@@ -153,6 +153,13 @@
 	icon_state = "plaque"
 	base_icon_state = "plaque"
 	tiled_dirt = FALSE
+
+/turf/open/floor/plasteel/lightgrey
+	name = "light grey floor"
+	icon_state = "corner_white_full"
+	base_icon_state = "corner_white_full"
+	icon = 'icons/turf/decals/decals.dmi'
+	color = "#a8b2b6"
 
 /turf/open/floor/plasteel/cult/narsie_act()
 	return
@@ -335,6 +342,3 @@
 	icon_state = "tiled_light"
 	base_icon_state = "tiled_light"
 	color = "#938170"
-
-/turf/open/floor/plasteel/icecropolis
-	baseturfs = /turf/open/indestructible/necropolis/air

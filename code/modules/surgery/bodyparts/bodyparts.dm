@@ -153,11 +153,6 @@
 	if(burn_dam > DAMAGE_PRECISION)
 		. += "<span class='warning'>This limb has [burn_dam > 30 ? "severe" : "minor"] burns.</span>"
 
-
-/obj/item/bodypart/blob_act()
-	take_damage(max_damage)
-
-
 /obj/item/bodypart/attack(mob/living/carbon/C, mob/user)
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
@@ -244,7 +239,7 @@
 			burn *= 2
 
 	// Is the damage greater than the threshold, and if so, probability of damage + item force
-	if((brute_dam > bone_break_threshold) && prob(brute_dam + break_modifier))
+	if(brute && (brute_dam > bone_break_threshold) && prob(brute_dam + break_modifier))
 		break_bone()
 
 	// Bleeding is applied here
@@ -583,9 +578,9 @@
 	if(mutation_color) //I hate mutations
 		draw_color = mutation_color
 	else if(should_draw_greyscale)
-		// [CELADON-EDIT] - TAJARA
+		// [CELADON-EDIT] - TAJARA, CELADON_RIOL
 		// draw_color = (species_color) || (skin_tone && skintone2hex(skin_tone)) // CELADON-EDIT - ORIGINAL
-		draw_color = (species_color) || (skin_tone && skintone2hex(skin_tone)) || (skin_tone_nose && skintonenose2hex(skin_tone_nose)) || (skin_tone_tajara && skintonetajara2hex(skin_tone_tajara))
+		draw_color = (species_color) || (skin_tone && skintone2hex(skin_tone)) || (skin_tone_nose && skintonenose2hex(skin_tone_nose)) || (skin_tone_tajara && skintonetajara2hex(skin_tone_tajara)) || (skin_tone_riol && skintoneriol2hex(skin_tone_riol))
 		// [/CELADON-EDIT]
 	else
 		draw_color = null
@@ -613,6 +608,12 @@
 			skin_tone_tajara = H.skin_tone_tajara
 		else
 			skin_tone_tajara = ""
+
+		// [CELADON-ADD] - CELADON_RIOL
+		if(S.use_skintoneriol)
+			skin_tone_riol = H.skin_tone_riol
+		else
+			skin_tone_riol = ""
 		// [/CELADON-ADD]
 
 		use_damage_color = S.use_damage_color
@@ -637,9 +638,9 @@
 
 		draw_color = mutation_color
 		if(should_draw_greyscale) //Should the limb be colored?
-			// [CELADON-EDIT] - TAJARA
+			// [CELADON-EDIT] - TAJARA, CELADON_RIOL
 			// draw_color ||= (species_color) || (skin_tone && skintone2hex(skin_tone)) // CELADON-EDIT - ORIGINAL
-			draw_color ||= (species_color) || (skin_tone && skintone2hex(skin_tone)) || (skin_tone_nose && skintonenose2hex(skin_tone_nose)) || (skin_tone_tajara && skintonetajara2hex(skin_tone_tajara))
+			draw_color ||= (species_color) || (skin_tone && skintone2hex(skin_tone)) || (skin_tone_nose && skintonenose2hex(skin_tone_nose)) || (skin_tone_tajara && skintonetajara2hex(skin_tone_tajara)) || (skin_tone_riol && skintoneriol2hex(skin_tone_riol))
 			// [/CELADON-EDIT]
 
 		dmg_overlay_type = S.damage_overlay_type
@@ -737,9 +738,9 @@
 
 		draw_color = mutation_color
 		if(should_draw_greyscale) //Should the limb be colored outside of a forced color?
-			// [CELADON-EDIT] - TAJARA
+			// [CELADON-EDIT] - TAJARA, CELADON_RIOL
 			// draw_color ||= (species_color) || (skin_tone && skintone2hex(skin_tone)) // CELADON-EDIT - ORIGINAL
-			draw_color ||= (species_color) || (skin_tone && skintone2hex(skin_tone)) || (skin_tone_nose && skintonenose2hex(skin_tone_nose)) || (skin_tone_tajara && skintonetajara2hex(skin_tone_tajara))
+			draw_color ||= (species_color) || (skin_tone && skintone2hex(skin_tone)) || (skin_tone_nose && skintonenose2hex(skin_tone_nose)) || (skin_tone_tajara && skintonetajara2hex(skin_tone_tajara)) || (skin_tone_riol && skintoneriol2hex(skin_tone_riol))
 			// [/CELADON-EDIT]
 
 
@@ -794,7 +795,11 @@
 	if (bone_status == BONE_FLAG_NORMAL && body_part & LEGS) // Because arms are not legs
 		owner.set_broken_legs(owner.broken_legs + 1)
 	bone_status = BONE_FLAG_BROKEN
-	addtimer(CALLBACK(owner, TYPE_PROC_REF(/atom, visible_message), "<span class='danger'>You hear a cracking sound coming from [owner]'s [name].</span>", "<span class='userdanger'>You feel something crack in your [name]!</span>", "<span class='danger'>You hear an awful cracking sound.</span>"), 1 SECONDS)
+//	addtimer(CALLBACK(src, PROC_REF(break_bone_feedback), 1 SECONDS)) testing sommething
+
+///obj/item/bodypart/proc/break_bone_feedback()
+	owner.visible_message("<span class='danger'>You hear a cracking sound coming from [owner]'s [name].</span>", "<span class='userdanger'>You feel something crack in your [name]!</span>", "<span class='danger'>You hear an awful cracking sound.</span>")
+	playsound(owner, list('sound/health/bone/bone_break1.ogg','sound/health/bone/bone_break2.ogg','sound/health/bone/bone_break3.ogg','sound/health/bone/bone_break4.ogg','sound/health/bone/bone_break5.ogg','sound/health/bone/bone_break6.ogg'), 100, FALSE, -1)
 
 /obj/item/bodypart/proc/fix_bone()
 	// owner.update_inv_splints() breaks

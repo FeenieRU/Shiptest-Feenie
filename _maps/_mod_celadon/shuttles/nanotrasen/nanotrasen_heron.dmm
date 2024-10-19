@@ -1326,6 +1326,7 @@
 /obj/effect/turf_decal/siding/thinplating,
 /obj/effect/turf_decal/trimline/opaque/blue/line,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/plasteel,
 /area/ship/hallway/aft)
 "fr" = (
@@ -1632,6 +1633,7 @@
 	dir = 9
 	},
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/plasteel,
 /area/ship/cargo)
 "gI" = (
@@ -2594,6 +2596,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/tech,
 /area/ship/science/robotics)
 "kj" = (
@@ -2783,6 +2786,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plasteel/dark,
 /area/ship/security)
 "kR" = (
@@ -3565,6 +3569,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel,
 /area/ship/hallway/aft)
 "nh" = (
@@ -4843,11 +4848,11 @@
 	pixel_x = 2;
 	pixel_y = 3
 	},
-/obj/item/kitchen/knife/plastic{
+/obj/item/melee/knife/plastic{
 	pixel_x = 2
 	},
-/obj/item/kitchen/knife/plastic,
-/obj/item/kitchen/knife/plastic{
+/obj/item/melee/knife/plastic,
+/obj/item/melee/knife/plastic{
 	pixel_x = 5;
 	pixel_y = 2
 	},
@@ -5717,6 +5722,18 @@
 	},
 /turf/open/floor/plasteel,
 /area/ship/science/ai_chamber)
+"uM" = (
+/obj/effect/turf_decal/siding/thinplating,
+/obj/effect/turf_decal/trimline/opaque/blue/line,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/machinery/newscaster/directional/south{
+	pixel_x = -12
+	},
+/turf/open/floor/plasteel,
+/area/ship/hallway/fore)
 "uO" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -5939,9 +5956,14 @@
 	dir = 4;
 	name = "Helm"
 	},
-/obj/machinery/power/apc/auto_name/directional/north,
+/obj/machinery/power/apc/auto_name/directional/north{
+	pixel_x = -4
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
+	},
+/obj/machinery/newscaster/directional/north{
+	pixel_x = 11
 	},
 /turf/open/floor/plasteel/telecomms_floor,
 /area/ship/bridge)
@@ -6846,6 +6868,7 @@
 /obj/effect/turf_decal/trimline/opaque/blue/line{
 	dir = 4
 	},
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plasteel,
 /area/ship/hallway/fore)
 "zp" = (
@@ -7042,11 +7065,11 @@
 /area/ship/hallway/fore)
 "zN" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/reagent_containers/food/condiment/soysauce{
+/obj/item/reagent_containers/condiment/soysauce{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/reagent_containers/food/condiment/mayonnaise,
+/obj/item/reagent_containers/condiment/mayonnaise,
 /obj/effect/turf_decal/box/corners{
 	dir = 4
 	},
@@ -7368,6 +7391,7 @@
 	},
 /obj/effect/turf_decal/techfloor,
 /obj/machinery/light/directional/east,
+/obj/machinery/holopad/emergency/command,
 /turf/open/floor/plasteel/tech,
 /area/ship/bridge)
 "Bo" = (
@@ -9197,12 +9221,12 @@
 "HT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/condiment/peppermill{
 	desc = "Often used to flavor food or make people sneeze. Fashionably moved to the left side of the table.";
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/condiment/saltshaker{
 	desc = "Salt. From space oceans, presumably. A staple of modern medicine.";
 	pixel_x = -8;
 	pixel_y = 12
@@ -9307,11 +9331,11 @@
 "Ip" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/snacks/mint,
-/obj/item/reagent_containers/food/condiment/enzyme{
+/obj/item/reagent_containers/condiment/enzyme{
 	pixel_x = -2;
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/food/condiment/sugar{
+/obj/item/reagent_containers/condiment/sugar{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -10088,7 +10112,7 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "LS" = (
-/obj/machinery/computer/cargo/express{
+/obj/machinery/computer/cargo{
 	dir = 8
 	},
 /obj/structure/railing{
@@ -10353,6 +10377,7 @@
 	dir = 4
 	},
 /obj/structure/table,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plastic,
 /area/ship/crew/canteen)
 "MD" = (
@@ -11013,10 +11038,6 @@
 	pixel_x = -5;
 	pixel_y = -12
 	},
-/obj/item/reagent_containers/food/drinks/britcup{
-	pixel_x = 8;
-	pixel_y = -4
-	},
 /obj/item/newspaper{
 	pixel_x = -8;
 	pixel_y = 5
@@ -11024,6 +11045,10 @@
 /obj/item/table_bell{
 	pixel_x = 8;
 	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/mug{
+	pixel_x = 8;
+	pixel_y = -3
 	},
 /turf/open/floor/plasteel/patterned/brushed,
 /area/ship/bridge)
@@ -11517,7 +11542,7 @@
 /turf/open/floor/plasteel,
 /area/ship/hallway/aft)
 "Rs" = (
-/obj/structure/guncase,
+/obj/structure/guncloset,
 /obj/item/gun/ballistic/automatic/pistol/candor/no_mag,
 /obj/item/gun/ballistic/automatic/pistol/candor/no_mag,
 /turf/open/floor/plasteel/tech,
@@ -11552,6 +11577,13 @@
 /obj/item/toy/plush/flushed,
 /turf/open/floor/carpet/green,
 /area/ship/crew/dorm/dormtwo)
+"Rz" = (
+/obj/effect/turf_decal/techfloor{
+	dir = 1
+	},
+/obj/machinery/newscaster/directional/north,
+/turf/open/floor/plasteel/tech/grid,
+/area/ship/security/armory)
 "RA" = (
 /obj/effect/turf_decal/corner_techfloor_gray/diagonal,
 /obj/effect/turf_decal/industrial/warning{
@@ -12130,12 +12162,12 @@
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/condiment/peppermill{
 	desc = "Often used to flavor food or make people sneeze. Fashionably moved to the left side of the table.";
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/condiment/saltshaker{
 	desc = "Salt. From space oceans, presumably. A staple of modern medicine.";
 	pixel_x = -8;
 	pixel_y = 12
@@ -12857,6 +12889,7 @@
 "Wr" = (
 /obj/effect/turf_decal/siding/thinplating,
 /obj/effect/turf_decal/trimline/opaque/blue/line,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/plasteel,
 /area/ship/hallway/fore)
 "Ww" = (
@@ -13001,10 +13034,10 @@
 /obj/item/reagent_containers/food/snacks/dough,
 /obj/item/reagent_containers/food/snacks/dough,
 /obj/item/kitchen/rollingpin,
-/obj/item/kitchen/knife/butcher{
+/obj/item/melee/knife/butcher{
 	pixel_x = 13
 	},
-/obj/item/kitchen/knife,
+/obj/item/melee/knife/kitchen,
 /obj/effect/turf_decal/industrial/warning{
 	dir = 1
 	},
@@ -13604,7 +13637,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 6
 	},
-/obj/structure/fireaxecabinet{
+/obj/structure/cabinet/fireaxe{
 	pixel_y = 27
 	},
 /obj/structure/closet/secure_closet/engineering_electrical,
@@ -15112,7 +15145,7 @@ Hi
 zX
 JA
 tg
-Gk
+uM
 uQ
 yU
 ja
@@ -15724,7 +15757,7 @@ oz
 oz
 oz
 oz
-ys
+Rz
 ub
 MP
 QG

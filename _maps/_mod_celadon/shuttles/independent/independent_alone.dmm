@@ -120,6 +120,7 @@
 /obj/item/spacecash/bundle/c1000,
 /obj/item/spacecash/bundle/c1000,
 /mob/living/simple_animal/pet/mothroach,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
 "pn" = (
@@ -178,7 +179,7 @@
 /turf/open/floor/plasteel/freezer,
 /area/ship/bridge)
 "ut" = (
-/obj/machinery/computer/cargo/express{
+/obj/machinery/computer/cargo{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -301,11 +302,11 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
 "Ta" = (
-/obj/docking_port{
+/obj/docking_port/stationary{
 	dwidth = 15;
-	dir = 8;
+	height = 15;
 	width = 30;
-	height = 15
+	dir = 8
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -422,8 +423,8 @@
 pz
 hw
 pz
-Ta
 hw
+Ta
 pz
 hw
 pz

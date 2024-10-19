@@ -48,8 +48,9 @@
 /obj/effect/turf_decal/steeldecal/steel_decals_central6{
 	pixel_y = -4
 	},
-/obj/item/banner/elysium{
-	pixel_x = 4
+/obj/item/banner/elysium/mundane{
+	pixel_x = 4;
+	anchored = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
 /turf/open/floor/plasteel/dark,
@@ -363,13 +364,13 @@
 	pixel_y = 28;
 	dir = 1
 	},
-/obj/item/kitchen/knife,
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/melee/knife/kitchen,
+/obj/item/reagent_containers/condiment/peppermill{
 	desc = "Often used to flavor food or make people sneeze. Fashionably moved to the left side of the table.";
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/condiment/saltshaker{
 	pixel_x = 4;
 	pixel_y = 10
 	},
@@ -380,9 +381,10 @@
 /obj/effect/turf_decal/corner_steel_grid{
 	dir = 5
 	},
-/obj/item/banner/elysium{
+/obj/item/banner/elysium/mundane{
 	pixel_x = 4;
-	morale_cooldown = 50000
+	morale_cooldown = 50000;
+	anchored = 1
 	},
 /obj/effect/turf_decal/steeldecal/steel_decals1,
 /turf/open/floor/plasteel/mono/dark,
@@ -1013,6 +1015,10 @@
 	pixel_x = 12;
 	pixel_y = 3
 	},
+/obj/item/elysm_manual{
+	pixel_x = -5;
+	pixel_y = -8
+	},
 /turf/open/floor/plasteel/grimy,
 /area/ship/hallway/central)
 "hE" = (
@@ -1112,6 +1118,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "0-1"
 	},
 /turf/open/floor/wood/walnut,
 /area/ship/hallway/central)
@@ -1213,6 +1222,10 @@
 	},
 /obj/machinery/light/directional/east,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/elysm_manual{
+	pixel_x = 2;
+	pixel_y = -12
+	},
 /turf/open/floor/wood/walnut,
 /area/ship/bridge)
 "jk" = (
@@ -1670,7 +1683,7 @@
 /obj/item/storage/book/bible/koran{
 	pixel_y = -1
 	},
-/obj/structure/guncase{
+/obj/structure/guncloset{
 	desc = "A locker that holds weapons.";
 	name = "secure Koran case";
 	req_one_access_txt = "90"
@@ -1824,30 +1837,6 @@
 /area/ship/security/prison)
 "ov" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/automatic/assault/p16/minutemen{
-	desc = "Standard Solar Federation rifle. It is a modified version of the p16. 5.56 millimeter caliber.";
-	name = "P16 rifle";
-	pixel_x = -11;
-	pixel_y = 9
-	},
-/obj/item/gun/ballistic/automatic/assault/p16/minutemen{
-	desc = "Standard Solar Federation rifle. It is a modified version of the p16. 5.56 millimeter caliber.";
-	name = "P16 rifle";
-	pixel_x = 4;
-	pixel_y = -6
-	},
-/obj/item/gun/ballistic/automatic/assault/p16/minutemen{
-	desc = "Standard Solar Federation rifle. It is a modified version of the p16. 5.56 millimeter caliber.";
-	name = "P16 rifle";
-	pixel_x = -2;
-	pixel_y = -1
-	},
-/obj/item/gun/ballistic/automatic/assault/p16/minutemen{
-	desc = "Standard Solar Federation rifle. It is a modified version of the p16. 5.56 millimeter caliber.";
-	name = "P16 rifle";
-	pixel_x = -7;
-	pixel_y = 5
-	},
 /obj/effect/turf_decal/box/red,
 /obj/structure/sign/poster/official/help_others{
 	pixel_y = 32
@@ -1859,6 +1848,22 @@
 /obj/machinery/door/window/brigdoor/westleft{
 	dir = 2;
 	req_one_access_txt = "2"
+	},
+/obj/item/gun/ballistic/automatic/assault/p16{
+	pixel_x = -11;
+	pixel_y = 9
+	},
+/obj/item/gun/ballistic/automatic/assault/p16{
+	pixel_x = 4;
+	pixel_y = -6
+	},
+/obj/item/gun/ballistic/automatic/assault/p16{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/obj/item/gun/ballistic/automatic/assault/p16{
+	pixel_x = -7;
+	pixel_y = 5
 	},
 /turf/open/floor/wood/ebony,
 /area/ship/security/armory)
@@ -2487,6 +2492,7 @@
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/box/red,
+/obj/item/elysm_manual,
 /turf/open/floor/plasteel/dark,
 /area/ship/security)
 "tA" = (
@@ -3050,9 +3056,10 @@
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/hallway/central)
 "xY" = (
-/obj/item/banner/elysium{
+/obj/item/banner/elysium/mundane{
 	pixel_x = 4;
-	morale_cooldown = 50000
+	morale_cooldown = 50000;
+	anchored = 1
 	},
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 9
@@ -3480,7 +3487,8 @@
 "Bs" = (
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/item/banner/solfed{
-	morale_cooldown = 50000
+	morale_cooldown = 50000;
+	anchored = 1
 	},
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/crew/office)
@@ -3724,7 +3732,7 @@
 	pixel_x = -5;
 	pixel_y = -9
 	},
-/obj/structure/fireaxecabinet{
+/obj/structure/cabinet/fireaxe{
 	pixel_y = 27
 	},
 /obj/structure/plaque/static_plaque/atmos{
@@ -3923,9 +3931,10 @@
 /turf/open/floor/wood/walnut,
 /area/ship/security)
 "Ei" = (
-/obj/item/banner/elysium{
+/obj/item/banner/elysium/mundane{
 	pixel_x = 4;
-	morale_cooldown = 4000
+	morale_cooldown = 4000;
+	anchored = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/box/red,
@@ -4003,7 +4012,8 @@
 	},
 /obj/machinery/light/directional/north,
 /obj/item/banner/solfed{
-	morale_cooldown = 50000
+	morale_cooldown = 50000;
+	anchored = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/walnut,
@@ -4116,7 +4126,7 @@
 "FJ" = (
 /obj/item/radio/intercom/directional/west,
 /obj/machinery/firealarm/directional/west,
-/obj/machinery/computer/cargo/express/solgov,
+/obj/machinery/computer/cargo/solgov,
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
 "FP" = (
@@ -4276,9 +4286,10 @@
 /obj/effect/turf_decal/industrial/warning{
 	dir = 4
 	},
-/obj/item/banner/elysium{
+/obj/item/banner/elysium/mundane{
 	pixel_x = 4;
-	morale_cooldown = 50000
+	morale_cooldown = 50000;
+	anchored = 1
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/hallway/central)
@@ -4757,7 +4768,8 @@
 	dir = 5
 	},
 /obj/item/banner/solfed{
-	morale_cooldown = 50000
+	morale_cooldown = 50000;
+	anchored = 1
 	},
 /turf/open/floor/carpet/green,
 /area/ship/security/range)
@@ -4976,7 +4988,7 @@
 /obj/effect/turf_decal/corner/opaque/bar/three_quarters{
 	dir = 8
 	},
-/obj/item/banner/elysium{
+/obj/item/banner/elysium/mundane{
 	pixel_x = 4
 	},
 /obj/effect/turf_decal/box/red,
@@ -5064,6 +5076,9 @@
 	},
 /obj/effect/turf_decal/corner/opaque/solgovgold{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/open/floor/wood/walnut,
 /area/ship/security)
@@ -5747,6 +5762,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/thinplating/dark,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/open/floor/wood/yew,
 /area/ship/crew/office)
 "TW" = (
@@ -5997,7 +6015,7 @@
 /turf/open/floor/wood/walnut,
 /area/ship/security)
 "VH" = (
-/obj/structure/guncase{
+/obj/structure/guncloset{
 	req_one_access_txt = "3"
 	},
 /obj/item/gun/ballistic/rifle/solgov,
@@ -6029,7 +6047,8 @@
 	dir = 4
 	},
 /obj/item/banner/solfed{
-	morale_cooldown = 50000
+	morale_cooldown = 50000;
+	anchored = 1
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/hallway/central)
@@ -6282,9 +6301,10 @@
 /turf/open/floor/wood/yew,
 /area/ship/hallway/central)
 "XM" = (
-/obj/item/banner/elysium{
+/obj/item/banner/elysium/mundane{
 	pixel_x = 4;
-	morale_cooldown = 50000
+	morale_cooldown = 50000;
+	anchored = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /obj/effect/turf_decal/spline/fancy/wood{

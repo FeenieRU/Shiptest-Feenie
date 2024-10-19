@@ -153,6 +153,9 @@
 /obj/machinery/firealarm/directional/west{
 	pixel_y = 7
 	},
+/obj/machinery/newscaster/directional/west{
+	pixel_y = 19
+	},
 /turf/open/floor/plasteel/tech,
 /area/ship/bridge)
 "dJ" = (
@@ -284,6 +287,9 @@
 /obj/item/storage/pill_bottle/iron,
 /obj/effect/turf_decal/industrial/hatch/blue,
 /obj/machinery/airalarm/directional/west,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/fire,
 /turf/open/floor/plasteel/tech,
 /area/ship/medical)
 "eF" = (
@@ -884,7 +890,7 @@
 /obj/effect/turf_decal/techfloor{
 	dir = 6
 	},
-/obj/structure/guncase{
+/obj/structure/guncloset{
 	anchored = 1
 	},
 /obj/item/gun/energy/e_gun/smg{
@@ -928,7 +934,7 @@
 /obj/effect/turf_decal/siding/thinplating/dark,
 /obj/machinery/light/small/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/computer/cargo/express{
+/obj/machinery/computer/cargo{
 	dir = 1
 	},
 /turf/open/floor/plasteel/patterned,
@@ -1207,6 +1213,12 @@
 "uF" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/medical)
+"uH" = (
+/obj/machinery/porta_turret/ship/faction/nanotrasen{
+	dir = 5
+	},
+/turf/closed/wall/mineral/titanium,
+/area/ship/bridge)
 "vo" = (
 /obj/docking_port/stationary{
 	dwidth = 4;
@@ -1224,6 +1236,18 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plastic,
 /area/ship/hallway/central)
+"vO" = (
+/obj/effect/turf_decal/techfloor{
+	dir = 1
+	},
+/obj/effect/turf_decal/box,
+/obj/machinery/suit_storage_unit/inherit/industrial,
+/obj/item/tank/jetpack,
+/obj/machinery/door/window/northleft,
+/obj/item/clothing/mask/gas/sechailer,
+/obj/item/clothing/suit/space/hardsuit/ert/med,
+/turf/open/floor/plasteel/tech/grid,
+/area/ship/security)
 "wu" = (
 /obj/effect/turf_decal/borderfloorblack{
 	dir = 4
@@ -1530,65 +1554,63 @@
 	dir = 1
 	},
 /obj/item/stock_parts/cell/gun{
-	pixel_x = 6;
-	maxcharge = 20000
-	},
-/obj/item/stock_parts/cell/gun{
-	pixel_x = -4;
-	maxcharge = 20000
-	},
-/obj/item/stock_parts/cell/gun{
-	pixel_x = 1;
-	maxcharge = 20000
-	},
-/obj/item/stock_parts/cell/gun{
-	pixel_x = -11;
-	maxcharge = 20000
-	},
-/obj/item/stock_parts/cell/gun{
-	pixel_x = -11;
-	maxcharge = 20000;
-	pixel_y = 8
-	},
-/obj/item/stock_parts/cell/gun{
 	pixel_x = -4;
 	maxcharge = 20000;
-	pixel_y = 8
+	pixel_y = -4;
+	name = "special weapon power cell"
 	},
 /obj/item/stock_parts/cell/gun{
 	pixel_x = 4;
 	maxcharge = 20000;
-	pixel_y = 8
+	pixel_y = -4;
+	name = "special weapon power cell"
 	},
 /obj/item/stock_parts/cell/gun{
 	pixel_x = 10;
 	maxcharge = 20000;
-	pixel_y = 8
+	pixel_y = 5;
+	name = "special weapon power cell"
 	},
 /obj/item/stock_parts/cell/gun{
-	pixel_x = 10;
 	maxcharge = 20000;
-	pixel_y = -4
+	pixel_y = 5;
+	name = "special weapon power cell"
 	},
 /obj/item/stock_parts/cell/gun{
-	pixel_x = 1;
 	maxcharge = 20000;
-	pixel_y = -4
+	pixel_y = 5;
+	name = "special weapon power cell";
+	pixel_x = -8
 	},
 /obj/item/stock_parts/cell/gun{
-	pixel_x = -8;
 	maxcharge = 20000;
-	pixel_y = -4
+	pixel_y = -5;
+	name = "special weapon power cell";
+	pixel_x = -8
 	},
 /obj/item/stock_parts/cell/gun{
-	pixel_x = -15;
 	maxcharge = 20000;
-	pixel_y = 1
+	pixel_y = -5;
+	name = "special weapon power cell";
+	pixel_x = 11
 	},
 /obj/item/stock_parts/cell/gun{
-	pixel_x = -6;
 	maxcharge = 20000;
-	pixel_y = 1
+	pixel_y = 7;
+	name = "special weapon power cell";
+	pixel_x = 11
+	},
+/obj/item/stock_parts/cell/gun{
+	maxcharge = 20000;
+	pixel_y = 7;
+	name = "special weapon power cell";
+	pixel_x = -6
+	},
+/obj/item/stock_parts/cell/gun{
+	maxcharge = 20000;
+	pixel_y = 7;
+	name = "special weapon power cell";
+	pixel_x = 1
 	},
 /turf/open/floor/plasteel/tech,
 /area/ship/security)
@@ -1710,10 +1732,10 @@
 /obj/item/clothing/shoes/combat,
 /obj/item/clothing/shoes/combat,
 /obj/item/clothing/shoes/combat,
-/obj/item/kitchen/knife/combat/survival,
-/obj/item/kitchen/knife/combat/survival,
-/obj/item/kitchen/knife/combat/survival,
-/obj/item/kitchen/knife/combat/survival,
+/obj/item/melee/knife/survival,
+/obj/item/melee/knife/survival,
+/obj/item/melee/knife/survival,
+/obj/item/melee/knife/survival,
 /obj/item/storage/backpack/security,
 /obj/item/storage/backpack/security,
 /obj/item/storage/backpack/security,
@@ -1798,7 +1820,7 @@
 /turf/open/floor/plasteel/patterned/ridged,
 /area/ship/cargo)
 "EW" = (
-/obj/machinery/porta_turret/ship/ballistic{
+/obj/machinery/porta_turret/ship/faction/nanotrasen{
 	dir = 9
 	},
 /turf/closed/wall/mineral/titanium,
@@ -1891,8 +1913,8 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/engineering)
 "Gu" = (
-/obj/machinery/porta_turret/ship/ballistic{
-	dir = 5
+/obj/machinery/porta_turret/ship/faction/nanotrasen{
+	dir = 6
 	},
 /turf/closed/wall/mineral/titanium,
 /area/ship/bridge)
@@ -2258,8 +2280,6 @@
 /obj/effect/turf_decal/techfloor{
 	dir = 10
 	},
-/obj/machinery/vending/medical,
-/obj/effect/turf_decal/industrial/hatch/blue,
 /turf/open/floor/plasteel/tech,
 /area/ship/medical)
 "Ok" = (
@@ -2275,16 +2295,12 @@
 /obj/item/clothing/suit/jacket/leather/duster/command,
 /obj/item/clothing/suit/jacket/miljacket,
 /obj/item/clothing/shoes/jackboots,
-/obj/item/gun/ballistic/revolver/mateba,
-/obj/item/ammo_box/a357,
-/obj/item/ammo_box/a357,
-/obj/item/ammo_box/a357,
-/obj/item/ammo_box/a357,
-/obj/item/tank/jetpack/suit,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 4
 	},
+/obj/item/gun/energy/laser/captain,
+/obj/item/tank/jetpack/suit,
 /turf/open/floor/wood,
 /area/ship/bridge)
 "OG" = (
@@ -2807,7 +2823,7 @@
 /turf/open/floor/carpet/nanoweave,
 /area/ship/hallway/central)
 "YT" = (
-/obj/machinery/porta_turret/ship/ballistic{
+/obj/machinery/porta_turret/ship/faction/nanotrasen{
 	dir = 10
 	},
 /turf/closed/wall/mineral/titanium,
@@ -3017,7 +3033,7 @@ yI
 Co
 ze
 yI
-Gu
+YT
 "}
 (13,1,1) = {"
 pN
@@ -3032,7 +3048,7 @@ er
 jk
 Qj
 BN
-Jo
+vO
 yI
 "}
 (14,1,1) = {"
@@ -3149,7 +3165,7 @@ bA
 "}
 (21,1,1) = {"
 bA
-Gu
+uH
 Sn
 Sn
 Sn
@@ -3230,7 +3246,7 @@ bA
 (26,1,1) = {"
 bA
 bA
-Gu
+uH
 bX
 Ok
 cR
@@ -3265,7 +3281,7 @@ bA
 bA
 bA
 bA
-Gu
+uH
 Gm
 Gm
 qL

@@ -139,7 +139,7 @@
 /turf/open/floor/plasteel/white,
 /area/ship/science/robotics)
 "cl" = (
-/obj/machinery/porta_turret/ship/ballistic{
+/obj/machinery/porta_turret/ship/faction/solgov{
 	dir = 5
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -624,7 +624,7 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering/electrical)
 "jl" = (
-/obj/machinery/porta_turret/ship/ballistic{
+/obj/machinery/porta_turret/ship/faction/solgov{
 	dir = 6
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -777,7 +777,7 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering/atmospherics)
 "kU" = (
-/obj/machinery/porta_turret/ship/ballistic{
+/obj/machinery/porta_turret/ship/faction/solgov{
 	dir = 10
 	},
 /turf/closed/wall/mineral/titanium,
@@ -839,7 +839,7 @@
 /obj/structure/dresser,
 /obj/item/desk_flag/trans{
 	pixel_y = 8;
-	pixel_x = -7
+	pixel_x = -3
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1;
@@ -996,6 +996,7 @@
 /area/ship/security)
 "mK" = (
 /obj/effect/turf_decal/siding/wood,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/wood/walnut,
 /area/ship/crew/dorm)
 "mS" = (
@@ -1305,7 +1306,7 @@
 /turf/open/floor/plasteel/white,
 /area/ship/science/robotics)
 "qK" = (
-/obj/machinery/porta_turret/ship/ballistic{
+/obj/machinery/porta_turret/ship/faction/solgov{
 	dir = 9
 	},
 /turf/closed/wall/mineral/titanium,
@@ -1628,7 +1629,7 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/science/robotics)
 "tV" = (
-/obj/structure/guncase{
+/obj/structure/guncloset{
 	desc = "A locker that holds weapons.";
 	name = "weapon locker"
 	},
@@ -2308,7 +2309,7 @@
 /area/ship/bridge)
 "BZ" = (
 /obj/structure/railing,
-/obj/machinery/computer/cargo/express{
+/obj/machinery/computer/cargo{
 	dir = 8;
 	pixel_y = 4;
 	pixel_x = 8
@@ -2319,6 +2320,7 @@
 	},
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/mono,
 /area/ship/cargo)
 "Cr" = (
@@ -2951,8 +2953,15 @@
 	name = "Bridge Lockdown";
 	id = "cepheus_bridge_lockdown"
 	},
+/obj/machinery/newscaster/directional/north{
+	pixel_x = -13
+	},
 /turf/open/floor/carpet/royalblue,
 /area/ship/bridge)
+"Ja" = (
+/obj/machinery/newscaster/directional/north,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ship/engineering/electrical)
 "Jb" = (
 /obj/effect/turf_decal/solgov/all/center_right,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
@@ -3232,7 +3241,12 @@
 	color = "#543C30"
 	},
 /obj/structure/table/wood,
-/obj/item/radio/intercom/directional/west,
+/obj/item/radio/intercom/directional/west{
+	pixel_y = 11
+	},
+/obj/machinery/newscaster/directional/west{
+	pixel_y = -5
+	},
 /turf/open/floor/wood,
 /area/ship/hallway/central)
 "Mr" = (
@@ -3312,6 +3326,9 @@
 /obj/structure/table/wood,
 /obj/machinery/light/directional/east{
 	pixel_y = -16
+	},
+/obj/machinery/newscaster/directional/east{
+	pixel_y = 5
 	},
 /turf/open/floor/wood,
 /area/ship/hallway/central)
@@ -3544,7 +3561,7 @@
 /turf/open/floor/plasteel/white,
 /area/ship/security)
 "PR" = (
-/obj/structure/fireaxecabinet{
+/obj/structure/cabinet/fireaxe{
 	pixel_y = -27;
 	dir = 1
 	},
@@ -3792,15 +3809,13 @@
 	pixel_x = 5;
 	pixel_y = 6
 	},
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/plasteel/white,
 /area/ship/security/armory)
 "Um" = (
 /obj/structure/closet/cabinet{
 	name = "armor cabinet"
 	},
-/obj/item/clothing/suit/armor/vest/bulletproof/solgov,
-/obj/item/clothing/suit/armor/vest/bulletproof/solgov,
-/obj/item/clothing/suit/armor/vest/bulletproof/solgov,
 /obj/item/clothing/head/solgov/sonnensoldner,
 /obj/item/clothing/head/solgov/sonnensoldner,
 /obj/item/clothing/head/solgov/sonnensoldner,
@@ -3905,7 +3920,7 @@
 "Vj" = (
 /obj/structure/table/wood,
 /obj/item/cutting_board,
-/obj/item/kitchen/knife,
+/obj/item/melee/knife/kitchen,
 /obj/structure/sink/kitchen{
 	dir = 1;
 	pixel_y = -12;
@@ -3999,12 +4014,12 @@
 /area/ship/hallway/central)
 "WQ" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/condiment/peppermill{
 	desc = "Often used to flavor food or make people sneeze. Fashionably moved to the left side of the table.";
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/condiment/saltshaker{
 	pixel_x = 4;
 	pixel_y = 10
 	},
@@ -4248,17 +4263,17 @@
 /area/ship/engineering/electrical)
 "ZY" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/rice,
-/obj/item/reagent_containers/food/condiment/sugar,
-/obj/item/reagent_containers/food/condiment/milk,
-/obj/item/reagent_containers/food/condiment/milk,
-/obj/item/reagent_containers/food/condiment/soymilk,
-/obj/item/reagent_containers/food/condiment/soymilk,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/rice,
+/obj/item/reagent_containers/condiment/sugar,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/reagent_containers/condiment/soymilk,
 /obj/item/storage/fancy/egg_box,
-/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/item/reagent_containers/condiment/enzyme,
 /obj/effect/turf_decal/siding/wood{
 	color = "#792f27";
 	dir = 10
@@ -4534,7 +4549,7 @@ Ob
 wN
 pV
 Nx
-Ob
+Ja
 WY
 bb
 QJ

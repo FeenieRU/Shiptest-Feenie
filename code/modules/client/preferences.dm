@@ -5,7 +5,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
-	var/max_save_slots = 20
+	var/max_save_slots = 30
 
 	//non-preference stuff
 	var/muted = 0
@@ -84,6 +84,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/facial_hair_color = "000"		//Facial hair color
 	var/skin_tone = "caucasian1"		//Skin color
 	var/eye_color = "000"				//Eye color
+	// [CELADON-ADD] - TAJARA
+	var/tajara_ears_markings_color = "000"				//tajara ears markings color
+	var/tajara_head_markings_color = "000"				//tajara head markings color
+	var/tajara_nose_markings_color = "000"				//tajara nose markings color
+	var/tajara_chest_markings_color = "000"				//tajara chest markings color
+	var/tajara_body_markings_color = "000"				//tajara body markings color
+	// [CELADON-ADD] - CELADON_RIOL
+	var/riol_ears_markings_color = "000"				//riol ears markings color
+	var/riol_head_markings_color = "000"				//riol head markings color
+	var/riol_nose_markings_color = "000"				//riol nose markings color
+	var/riol_chest_markings_color = "000"				//riol chest markings color
+	var/riol_body_markings_color = "000"				//riol body markings color
+	var/riol_tail_markings_color = "000"				//riol tail markings color
+	// [/CELADON-ADD]
 	var/datum/species/pref_species = new /datum/species/human()	//Mutant race
 	var/species_looking_at = "human"	 //used as a helper to keep track of in the species select thingy
 	var/list/features = list(
@@ -91,6 +105,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							"mcolor2" = "FFF",
 							"grad_style" = "None",
 							"grad_color" = "FFF",
+							"tajara_ears_markings_color" = "FFF",
+							"tajara_head_markings_color" = "FFF",
+							"tajara_nose_markings_color" = "FFF",
+							"tajara_chest_markings_color" = "FFF",
+							"tajara_body_markings_color" = "FFF",
 							"ethcolor" = "9c3030",
 							"tail_lizard" = "Smooth",
 							"tail_human" = "None",
@@ -114,9 +133,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							"ipc_tail" = "None",
 							"ipc_chassis" = "Morpheus Cyberkinetics (Custom)",
 							"ipc_brain" = "Posibrain",
-							"kepori_feathers" = "Plain",
-							"kepori_body_feathers" = "Plain",
-							"kepori_tail_feathers" = "Fan",
+							"kepori_feathers" = "None",
+							"kepori_body_feathers" = "None",
+							"kepori_head_feathers" = "None",
+							"kepori_tail_feathers" = "None",
 							"vox_head_quills" = "Plain",
 							"vox_neck_quills" = "Plain",
 							"elzu_horns" = "None",
@@ -226,7 +246,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			load_path(C.ckey)
 			unlock_content = C.IsByondMember()
 			if(unlock_content)
-				max_save_slots = 30
+				max_save_slots = 50
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
 		if(load_character())
@@ -244,7 +264,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	return
 
 #define APPEARANCE_CATEGORY_COLUMN "<td valign='top' width='14%'>"
-#define MAX_MUTANT_ROWS 4
+#define MAX_MUTANT_ROWS 5
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	show_loadout = (current_tab != 1) ? show_loadout : FALSE
@@ -728,6 +748,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "</td>"
 					mutant_category = 0
 
+			if("kepori_head_feathers" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Head Feathers</h3>"
+				dat += "<a href='?_src_=prefs;preference=kepori_head_feathers;task=input'>[features["kepori_head_feathers"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["mcolor2"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color_2;task=input'>Change</a><BR>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
 			if("kepori_body_feathers" in pref_species.default_features)
 				if(!mutant_category)
 					dat += APPEARANCE_CATEGORY_COLUMN
@@ -853,6 +886,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<h3>Ears markings</h3>"
 				dat += "<a href='?_src_=prefs;preference=tajara_ears_markings;task=input'>[features["tajara_ears_markings"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["tajara_ears_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=tajara_ears_markings_color;task=input'>Change</a>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -865,6 +899,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<h3>Head markings</h3>"
 				dat += "<a href='?_src_=prefs;preference=tajara_head_markings;task=input'>[features["tajara_head_markings"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["tajara_head_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=tajara_head_markings_color;task=input'>Change</a>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -877,9 +912,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<h3>Nose markings</h3>"
 				dat += "<a href='?_src_=prefs;preference=tajara_nose_markings;task=input'>[features["tajara_nose_markings"]]</a><BR>"
-				dat += "<h3>Skin Tone nose</h3>"
-				dat += "<a href='?_src_=prefs;preference=s_tone_nose;task=input'>[skin_tone_nose]</a>"
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SKIN_TONE_NOSE]'>[(randomise[RANDOM_SKIN_TONE_NOSE]) ? "Lock" : "Unlock"]</A>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["tajara_nose_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=tajara_nose_markings_color;task=input'>Change</a>"
+
+				//dat += "<h3>Skin Tone nose</h3>"
+				//dat += "<a href='?_src_=prefs;preference=s_tone_nose;task=input'>[skin_tone_nose]</a>"
+				//dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SKIN_TONE_NOSE]'>[(randomise[RANDOM_SKIN_TONE_NOSE]) ? "Lock" : "Unlock"]</A>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -892,6 +929,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<h3>Chest markings</h3>"
 				dat += "<a href='?_src_=prefs;preference=tajara_chest_markings;task=input'>[features["tajara_chest_markings"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["tajara_chest_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=tajara_chest_markings_color;task=input'>Change</a>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -904,6 +942,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<h3>Body markings</h3>"
 				dat += "<a href='?_src_=prefs;preference=tajara_body_markings;task=input'>[features["tajara_body_markings"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["tajara_body_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=tajara_body_markings_color;task=input'>Change</a>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -921,13 +960,136 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(mutant_category >= MAX_MUTANT_ROWS)
 					dat += "</td>"
 					mutant_category = 0
+
+			// [CELADON-ADD] - CELADON_RIOL
+			if("riol_ears" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Ears</h3>"
+				dat += "<a href='?_src_=prefs;preference=riol_ears;task=input'>[features["riol_ears"]]</a><BR>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if("riol_ears_markings" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Ears markings</h3>"
+				dat += "<a href='?_src_=prefs;preference=riol_ears_markings;task=input'>[features["riol_ears_markings"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["riol_ears_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=riol_ears_markings_color;task=input'>Change</a>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if("riol_head_markings" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Head markings</h3>"
+				dat += "<a href='?_src_=prefs;preference=riol_head_markings;task=input'>[features["riol_head_markings"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["riol_head_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=riol_head_markings_color;task=input'>Change</a>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if("riol_nose_markings" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Nose markings</h3>"
+				dat += "<a href='?_src_=prefs;preference=riol_nose_markings;task=input'>[features["riol_nose_markings"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["riol_nose_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=riol_nose_markings_color;task=input'>Change</a>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if("riol_chest_markings" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Chest markings</h3>"
+				dat += "<a href='?_src_=prefs;preference=riol_chest_markings;task=input'>[features["riol_chest_markings"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["riol_chest_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=riol_chest_markings_color;task=input'>Change</a>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if("riol_body_markings" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Body markings</h3>"
+				dat += "<a href='?_src_=prefs;preference=riol_body_markings;task=input'>[features["riol_body_markings"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["riol_body_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=riol_body_markings_color;task=input'>Change</a>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			// if("riol_tail_markings" in pref_species.default_features) 		// Пока отключено
+			// 	if(!mutant_category)
+			// 		dat += APPEARANCE_CATEGORY_COLUMN
+
+			// 	dat += "<h3>Tail markings</h3>"
+			// 	dat += "<a href='?_src_=prefs;preference=riol_tail_markings;task=input'>[features["riol_tail_markings"]]</a><BR>"
+			// 	dat += "<span style='border:1px solid #161616; background-color: #[features["riol_tail_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=riol_tail_markings_color;task=input'>Change</a>"
+
+			// 	mutant_category++
+			// 	if(mutant_category >= MAX_MUTANT_ROWS)
+			// 		dat += "</td>"
+			// 		mutant_category = 0
+
+			if("riol_legs" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Legs</h3>"
+				dat += "<a href='?_src_=prefs;preference=riol_legs;task=input'>[features["riol_legs"]]</a><BR>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if("riol_tail" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Tail</h3>"
+				dat += "<a href='?_src_=prefs;preference=riol_tail;task=input'>[features["riol_tail"]]</a><BR>"
+				dat += "<span style='border:1px solid #161616; background-color: #[features["riol_tail_markings_color"]];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=riol_tail_markings_color;task=input'>Change</a>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
 			// [/CELADON-ADD]
 
 			//Adds a thing to select which phobia because I can't be assed to put that in the quirks window
 			if("Phobia" in all_quirks)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
 				dat += "<h3>Phobia</h3>"
 
 				dat += "<a href='?_src_=prefs;preference=phobia;task=input'>[phobia]</a><BR>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
 
 			if("Smoker" in all_quirks)
 				dat += "<h3>Smoker</h3>"
@@ -942,9 +1104,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += "<a href='?_src_=prefs;preference=body_size;task=input'>[features["body_size"]]</a><BR>"
 
-			// begin generic adjective
-			if(!mutant_category)
-				dat += APPEARANCE_CATEGORY_COLUMN
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if(generic_adjective)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
 
 			dat += "<h3>Character Adjective</h3>"
 
@@ -973,20 +1140,33 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "</td>"
 				mutant_category = 0
 			dat += "</tr></table>"
+			// [CELADON - EDIT] - CELADON_LANIUS
+			//dat += "<h3>Prosthetic Limbs</h3>" [CELADON - EDIT] - ORIGINAL
+			//dat += "<a href='?_src_=prefs;preference=fbp'>Full Body Prosthesis: [fbp ? "Yes" : "No"]</a><br>"
 
-			dat += "<h3>Prosthetic Limbs</h3>"
-			dat += "<a href='?_src_=prefs;preference=fbp'>Full Body Prosthesis: [fbp ? "Yes" : "No"]</a><br>"
+			//if(!fbp)
+				//dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_PROSTHETIC]'>Random Prosthetic: [(randomise[RANDOM_PROSTHETIC]) ? "Yes" : "No"]</a><br>"
 
-			if(!fbp)
-				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_PROSTHETIC]'>Random Prosthetic: [(randomise[RANDOM_PROSTHETIC]) ? "Yes" : "No"]</a><br>"
+				//dat += "<table>"
+				//for(var/index in prosthetic_limbs)
+					//var/bodypart_name = parse_zone(index)
+					//dat += "<tr><td><b>[bodypart_name]:</b></td>"
+					//dat += "<td><a href='?_src_=prefs;preference=limbs;customize_limb=[index]'>[prosthetic_limbs[index]]</a></td></tr>"
+				//dat += "</table><br>" [/CELADON - EDIT] - ORIGINAL END
+			if(!istype(pref_species, /datum/species/lanius))
+				dat += "<h3>Prosthetic Limbs</h3>"
+				dat += "<a href='?_src_=prefs;preference=fbp'>Full Body Prosthesis: [fbp ? "Yes" : "No"]</a><br>"
 
-				dat += "<table>"
-				for(var/index in prosthetic_limbs)
-					var/bodypart_name = parse_zone(index)
-					dat += "<tr><td><b>[bodypart_name]:</b></td>"
-					dat += "<td><a href='?_src_=prefs;preference=limbs;customize_limb=[index]'>[prosthetic_limbs[index]]</a></td></tr>"
-				dat += "</table><br>"
+				if(!fbp)
+					dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_PROSTHETIC]'>Random Prosthetic: [(randomise[RANDOM_PROSTHETIC]) ? "Yes" : "No"]</a><br>"
 
+					dat += "<table>"
+					for(var/index in prosthetic_limbs)
+						var/bodypart_name = parse_zone(index)
+						dat += "<tr><td><b>[bodypart_name]:</b></td>"
+						dat += "<td><a href='?_src_=prefs;preference=limbs;customize_limb=[index]'>[prosthetic_limbs[index]]</a></td></tr>"
+					dat += "</table><br>"
+					//[/CELADON - EDIT]
 		if(2) //Loadout
 			if(path)
 				var/savefile/S = new /savefile(path)
@@ -1504,7 +1684,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		balance -= initial(quirk_type.value)
 		switch(change_type)
 			if("species")
-				if((quirk_name in SSquirks.species_blacklist) && (pref_species.id in SSquirks.species_blacklist[quirk_name]))
+				if((quirk_name in SSquirks.species_blacklist) && (target_species.id in SSquirks.species_blacklist[quirk_name]))
 					all_quirks_new -= quirk_name
 					balance += initial(quirk_type.value)
 			if("mood")
@@ -1785,7 +1965,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						hair_color = sanitize_hexcolor(new_hair)
 
 				if("hairstyle")
-					// [CELADON-EDIT] - TAJARA
+					// [CELADON-EDIT] - TAJARA - изменения базы
 					// var/new_hairstyle // CELADON-EDIT - ORIGINAL
 					// if(gender == MALE) // CELADON-EDIT - ORIGINAL
 					// 	new_hairstyle = input(user, "Choose your character's hairstyle:", "Character Preference")  as null|anything in GLOB.hairstyles_male_list // CELADON-EDIT - ORIGINAL
@@ -1799,7 +1979,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					// [/CELADON-EDIT]
 
 				if("next_hairstyle")
-					// [CELADON-EDIT] - TAJARA
+					// [CELADON-EDIT] - TAJARA - изменения базы
 					// if (gender == MALE) // CELADON-EDIT - ORIGINAL
 					// 	hairstyle = next_list_item(hairstyle, GLOB.hairstyles_male_list) // CELADON-EDIT - ORIGINAL
 					// else if(gender == FEMALE) // CELADON-EDIT - ORIGINAL
@@ -1810,7 +1990,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					// [/CELADON-EDIT]
 
 				if("previous_hairstyle")
-					// [CELADON-EDIT] - TAJARA
+					// [CELADON-EDIT] - TAJARA - изменения базы
 					// if (gender == MALE) // CELADON-EDIT - ORIGINAL
 					// 	hairstyle = previous_list_item(hairstyle, GLOB.hairstyles_male_list) // CELADON-EDIT - ORIGINAL
 					// else if(gender == FEMALE) // CELADON-EDIT - ORIGINAL
@@ -1826,7 +2006,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						facial_hair_color = sanitize_hexcolor(new_facial)
 
 				if("facial_hairstyle")
-					// [CELADON-EDIT] - TAJARA
+					// [CELADON-EDIT] - TAJARA - изменения базы
 					// var/new_facial_hairstyle // CELADON-EDIT - ORIGINAL
 					// if(gender == MALE) // CELADON-EDIT - ORIGINAL
 					// 	new_facial_hairstyle = input(user, "Choose your character's facial-hairstyle:", "Character Preference")  as null|anything in GLOB.facial_hairstyles_male_list // CELADON-EDIT - ORIGINAL
@@ -1840,7 +2020,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					// [/CELADON-EDIT]
 
 				if("next_facehairstyle")
-					// [CELADON-EDIT] - TAJARA
+					// [CELADON-EDIT] - TAJARA - изменения базы
 					// if (gender == MALE) // CELADON-EDIT - ORIGINAL
 					// 	facial_hairstyle = next_list_item(facial_hairstyle, GLOB.facial_hairstyles_male_list) // CELADON-EDIT - ORIGINAL
 					// else if(gender == FEMALE) // CELADON-EDIT - ORIGINAL
@@ -1851,7 +2031,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					// [/CELADON-EDIT]
 
 				if("previous_facehairstyle")
-					// [CELADON-EDIT] - TAJARA
+					// [CELADON-EDIT] - TAJARA - изменения базы
 					// if (gender == MALE) // CELADON-EDIT - ORIGINAL
 					// 	facial_hairstyle = previous_list_item(facial_hairstyle, GLOB.facial_hairstyles_male_list) // CELADON-EDIT - ORIGINAL
 					// else if (gender == FEMALE) // CELADON-EDIT - ORIGINAL
@@ -1860,6 +2040,56 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					// 	facial_hairstyle = previous_list_item(facial_hairstyle, GLOB.facial_hairstyles_list) // CELADON-EDIT - ORIGINAL
 					facial_hairstyle = previous_list_item(facial_hairstyle, pref_species.get_facial_hair_list_by_gender(gender))
 					// [/CELADON-EDIT]
+
+				// [CELADON-ADD] - TAJARA
+
+				if("tajara_ears_markings_color")
+					var/new_tajara_ears_markings_color = input(user, "Choose your character's hair gradient colour:", "Character Preference","#"+features["tajara_ears_markings_color"]) as color|null
+					if(new_tajara_ears_markings_color)
+						features["tajara_ears_markings_color"] = sanitize_hexcolor(new_tajara_ears_markings_color)
+				if("tajara_head_markings_color")
+					var/new_tajara_ears_markings_color = input(user, "Choose your character's hair gradient colour:", "Character Preference","#"+features["tajara_head_markings_color"]) as color|null
+					if(new_tajara_ears_markings_color)
+						features["tajara_head_markings_color"] = sanitize_hexcolor(new_tajara_ears_markings_color)
+				if("tajara_nose_markings_color")
+					var/new_tajara_nose_markings_color = input(user, "Choose your character's hair gradient colour:", "Character Preference","#"+features["new_tajara_nose_markings_color"]) as color|null
+					if(new_tajara_nose_markings_color)
+						features["tajara_nose_markings_color"] = sanitize_hexcolor(new_tajara_nose_markings_color)
+				if("tajara_chest_markings_color")
+					var/new_tajara_chest_markings_color = input(user, "Choose your character's hair gradient colour:", "Character Preference","#"+features["tajara_chest_markings_color"]) as color|null
+					if(new_tajara_chest_markings_color)
+						features["tajara_chest_markings_color"] = sanitize_hexcolor(new_tajara_chest_markings_color)
+				if("tajara_body_markings_color")
+					var/new_tajara_body_markings_color = input(user, "Choose your character's hair gradient colour:", "Character Preference","#"+features["tajara_body_markings_color"]) as color|null
+					if(new_tajara_body_markings_color)
+						features["tajara_body_markings_color"] = sanitize_hexcolor(new_tajara_body_markings_color)
+
+				// [CELADON-ADD] - CELADON_RIOL
+				if("riol_ears_markings_color")
+					var/new_riol_ears_markings_color = input(user, "Choose your character's ears markings colour:", "Character Preference","#"+features["riol_ears_markings_color"]) as color|null
+					if(new_riol_ears_markings_color)
+						features["riol_ears_markings_color"] = sanitize_hexcolor(new_riol_ears_markings_color)
+				if("riol_head_markings_color")
+					var/new_riol_ears_markings_color = input(user, "Choose your character's head markings colour:", "Character Preference","#"+features["riol_head_markings_color"]) as color|null
+					if(new_riol_ears_markings_color)
+						features["riol_head_markings_color"] = sanitize_hexcolor(new_riol_ears_markings_color)
+				if("riol_nose_markings_color")
+					var/new_riol_nose_markings_color = input(user, "Choose your character's nose markings colour:", "Character Preference","#"+features["new_riol_nose_markings_color"]) as color|null
+					if(new_riol_nose_markings_color)
+						features["riol_nose_markings_color"] = sanitize_hexcolor(new_riol_nose_markings_color)
+				if("riol_chest_markings_color")
+					var/new_riol_chest_markings_color = input(user, "Choose your character's chest markings colour:", "Character Preference","#"+features["riol_chest_markings_color"]) as color|null
+					if(new_riol_chest_markings_color)
+						features["riol_chest_markings_color"] = sanitize_hexcolor(new_riol_chest_markings_color)
+				if("riol_body_markings_color")
+					var/new_riol_body_markings_color = input(user, "Choose your character's body markings colour:", "Character Preference","#"+features["riol_body_markings_color"]) as color|null
+					if(new_riol_body_markings_color)
+						features["riol_body_markings_color"] = sanitize_hexcolor(new_riol_body_markings_color)
+				if("riol_tail_markings_color")
+					var/new_riol_tail_markings_color = input(user, "Choose your character's tail markings colour:", "Character Preference","#"+features["riol_tail_markings_color"]) as color|null
+					if(new_riol_tail_markings_color)
+						features["riol_tail_markings_color"] = sanitize_hexcolor(new_riol_tail_markings_color)
+				// [/CELADON-ADD]
 
 				if("hair_gradient")
 					var/new_hair_gradient_color = input(user, "Choose your character's hair gradient colour:", "Character Preference","#"+features["grad_color"]) as color|null
@@ -2086,6 +2316,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					new_kepori_feathers = input(user, "Choose your character's plumage type:", "Character Preference") as null|anything in GLOB.kepori_feathers_list
 					if (new_kepori_feathers)
 						features["kepori_feathers"] = new_kepori_feathers
+
+				if("kepori_head_feathers")
+					var/new_kepori_feathers
+					new_kepori_feathers = input(user, "Choose your character's head feathers:", "Character Preference") as null|anything in GLOB.kepori_head_feathers_list
+					if (new_kepori_feathers)
+						features["kepori_head_feathers"] = new_kepori_feathers
 
 				if("kepori_body_feathers")
 					var/new_kepori_feathers
@@ -2555,8 +2791,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		organ_eyes.old_eye_color = eye_color
 	character.skin_tone = skin_tone
 	// [CELADON-ADD] - TAJARA
-	character.skin_tone_nose = skin_tone_nose
+	//character.skin_tone_nose = skin_tone_nose
 	character.skin_tone_tajara = skin_tone_tajara
+	// [CELADON-ADD] - CELADON_RIOL
+	character.skin_tone_riol = skin_tone_riol
 	// [/CELADON-ADD]
 	character.underwear = underwear
 	character.underwear_color = underwear_color
@@ -2636,6 +2874,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	if("tajara_ears" in pref_species.default_features)
 		character.dna.species.mutant_bodyparts |= "tajara_ears"
+
+	// [CELADON-ADD] - CELADON_RIOL
+	if("riol_tail" in pref_species.default_features)
+		character.dna.species.mutant_bodyparts |= "riol_tail"
+
+	if("riol_ears" in pref_species.default_features)
+		character.dna.species.mutant_bodyparts |= "riol_ears"
 	// [/CELADON-ADD]
 
 	if(icon_updates)

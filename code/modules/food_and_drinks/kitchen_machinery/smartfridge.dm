@@ -246,8 +246,8 @@
 	icon_state = "drying_rack"
 	use_power = IDLE_POWER_USE
 	circuit = null
-	idle_power_usage = 5
-	active_power_usage = 200
+	idle_power_usage = IDLE_DRAW_MINIMAL
+	active_power_usage = ACTIVE_DRAW_MINIMAL
 	visible_contents = FALSE
 	var/drying = FALSE
 
@@ -366,7 +366,7 @@
 /obj/machinery/smartfridge/drinks/accept_check(obj/item/O)
 	if(!istype(O, /obj/item/reagent_containers) || (O.item_flags & ABSTRACT) || !O.reagents || !O.reagents.reagent_list.len)
 		return FALSE
-	if(istype(O, /obj/item/reagent_containers/glass) || istype(O, /obj/item/reagent_containers/food/drinks) || istype(O, /obj/item/reagent_containers/food/condiment))
+	if(istype(O, /obj/item/reagent_containers/glass) || istype(O, /obj/item/reagent_containers/food/drinks) || istype(O, /obj/item/reagent_containers/condiment))
 		return TRUE
 
 // ----------------------------

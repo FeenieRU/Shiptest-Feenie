@@ -12,9 +12,11 @@
 
 	bounce_sfx_override = 'sound/weapons/gun/general/bulletcasing_shotgun_bounce.ogg'
 
-/obj/item/ammo_casing/shotgun/update_icon_state()
-	icon_state = "[initial(icon_state)][BB ? "" : "-spent"]"
-	return ..()
+// [CELADON-REMOVE] - CELADON_BALANCE
+// /obj/item/ammo_casing/shotgun/update_icon_state()
+// 	icon_state = "[initial(icon_state)][BB ? "" : "-spent"]"
+// 	return ..()
+// [/CELADON-REMOVE]
 
 /obj/item/ammo_casing/shotgun/buckshot
 	name = "buckshot shell"
@@ -45,6 +47,13 @@
 	desc = "An incendiary-coated shotgun slug."
 	icon_state = "incendiary"
 	projectile_type = /obj/projectile/bullet/incendiary/shotgun
+
+/obj/item/ammo_casing/shotgun/blank
+	name = "blank shell"
+	desc = "A shell packed with powder but no projectile."
+	icon_state = "blank"
+	projectile_type = /obj/projectile/bullet/pellet/blank
+	custom_materials = list(/datum/material/iron=250)
 
 /obj/item/ammo_casing/shotgun/improvised
 	name = "improvised shell"

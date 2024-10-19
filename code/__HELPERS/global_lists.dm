@@ -42,6 +42,7 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/spider_spinneret, GLOB.spider_spinneret_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/kepori_feathers, GLOB.kepori_feathers_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/kepori_body_feathers, GLOB.kepori_body_feathers_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/kepori_head_feathers, GLOB.kepori_head_feathers_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/kepori_tail_feathers, GLOB.kepori_tail_feathers_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/vox_head_quills, GLOB.vox_head_quills_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/vox_neck_quills, GLOB.vox_neck_quills_list)
@@ -59,6 +60,20 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails_animated/tajara, GLOB.tajara_animated_tail_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tajara_hairs, GLOB.tajara_hairs_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tajara_ears, GLOB.tajara_ears_list)
+	// [CELADON-ADD] - CELADON_RIOL
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_chest_markings, 		GLOB.riol_chest_markings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_body_markings, 			GLOB.riol_body_markings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_facial_hairs, 			GLOB.riol_facial_hairs_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_nose_markings, 			GLOB.riol_nose_markings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_ears_markings, 			GLOB.riol_ears_markings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_head_markings, 			GLOB.riol_head_markings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_tail_markings, 			GLOB.riol_tail_markings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_tail_markings_animated, GLOB.riol_animated_tail_markings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_legs, 					GLOB.riol_legs_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/riol, 					GLOB.riol_tail_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails_animated/riol, 		GLOB.riol_animated_tail_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_hairs, 					GLOB.riol_hairs_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/riol_ears, 					GLOB.riol_ears_list)
 	// [/CELADON-ADD]
 
 	//Species

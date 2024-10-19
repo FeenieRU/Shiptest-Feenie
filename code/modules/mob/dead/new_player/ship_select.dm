@@ -91,6 +91,12 @@
 			if(num_ships_with_template >= template.limit)
 				to_chat(spawnee, "<span class='danger'>There are already [num_ships_with_template] ships of this type; you cannot spawn more!</span>")
 				return
+			//[CELADON-ADD] -- CELADON_FIXES -- фикс спавна пустых шаттлов (вагинобонд)
+			var/name = spawnee.client.prefs.real_name
+			if(GLOB.real_names_joined.Find(name))
+				to_chat(usr, "<span class='warning'>Someone has spawned with this name already.")
+				return
+			//[/CELADON-ADD]
 
 			ui.close()
 
@@ -166,12 +172,15 @@
 			continue
 		var/list/ship_data = list(
 			"name" = T.name,
-			"faction" = ship_prefix_to_faction(T.prefix),
+			"faction" = T.faction_name,
 			"desc" = T.description,
 			"tags" = T.tags,
 			"crewCount" = length(T.job_slots),
 			"limit" = T.limit,
 			"curNum" = template_num_lookup[T] || 0,
 			"minTime" = T.get_req_spawn_minutes(),
+			// [CELADON-ADD] - mod_celadon/qol - Берём значение из конфига корабликов.
+			"shortName" = T.short_name,
+			// [/CELADON-ADD]
 		)
 		.["templates"] += list(ship_data)

@@ -124,6 +124,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 8
 	},
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "bm" = (
@@ -202,6 +203,10 @@
 /obj/item/stack/rods,
 /obj/structure/sign/poster/elysium/sonofelysium{
 	pixel_y = 32
+	},
+/obj/item/elysm_manual{
+	pixel_y = 10;
+	pixel_x = 11
 	},
 /turf/open/floor/carpet/green,
 /area/ship/crew/dorm)
@@ -552,7 +557,7 @@
 "fm" = (
 /obj/effect/turf_decal/box/white,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/banner/elysium,
+/obj/item/banner/elysium/mundane,
 /turf/open/floor/carpet/green,
 /area/ship/bridge)
 "fE" = (
@@ -1179,6 +1184,7 @@
 	pixel_x = 11;
 	pixel_y = 8
 	},
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/carpet/green,
 /area/ship/crew/dorm)
 "lK" = (
@@ -1321,6 +1327,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/holopad/emergency/command,
 /turf/open/floor/carpet/green,
 /area/ship/bridge)
 "nl" = (
@@ -1692,7 +1699,7 @@
 /turf/open/floor/carpet/green,
 /area/ship/bridge)
 "rf" = (
-/obj/structure/fireaxecabinet{
+/obj/structure/cabinet/fireaxe{
 	pixel_y = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -1962,7 +1969,8 @@
 /turf/closed/wall/rust,
 /area/ship/maintenance/fore)
 "tK" = (
-/obj/machinery/computer/cargo/express/retro,
+/obj/machinery/computer/cargo/retro,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/carpet/green,
 /area/ship/bridge)
 "tU" = (
@@ -2331,6 +2339,10 @@
 	pixel_x = -8;
 	pixel_y = 6
 	},
+/obj/item/elysm_manual{
+	pixel_y = 5;
+	pixel_x = 4
+	},
 /turf/open/floor/carpet/green,
 /area/ship/bridge)
 "wW" = (
@@ -2603,14 +2615,15 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering/electrical)
 "zP" = (
-/mob/living/simple_animal/hostile/retaliate/goose{
-	name = "Khasir"
-	},
 /obj/effect/turf_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/chair/sofa/brown/corpo/left{
 	dir = 4
+	},
+/mob/living/simple_animal/hostile/retaliate/goose{
+	name = "Khasir";
+	faction = list("playerElysium")
 	},
 /turf/open/floor/carpet/green,
 /area/ship/security)
@@ -2993,6 +3006,10 @@
 	pixel_y = -2;
 	pixel_x = 6;
 	default_raw_text = "Понимаю, дело не ждать, но каир\ пажалуста паливай хатяба один раза на недель."
+	},
+/obj/item/elysm_manual{
+	pixel_y = -8;
+	pixel_x = 12
 	},
 /turf/open/floor/carpet/green,
 /area/ship/security/dock)
@@ -4316,9 +4333,6 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/sign/poster/elysium/ak47{
-	pixel_y = 32
-	},
 /turf/open/floor/pod,
 /area/ship/security/armory)
 "SQ" = (
@@ -4423,6 +4437,7 @@
 /area/ship/cargo)
 "TR" = (
 /obj/effect/decal/cleanable/vomit/old,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/carpet/green,
 /area/ship/security)
 "TU" = (
@@ -4882,6 +4897,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /turf/open/floor/pod,
+/area/ship/security/armory)
+"Zi" = (
+/obj/structure/sign/poster/elysium/protest,
+/turf/closed/wall/r_wall/rust,
 /area/ship/security/armory)
 "Zy" = (
 /obj/machinery/light/small/directional/north,
@@ -5591,7 +5610,7 @@ uP
 (18,1,1) = {"
 uP
 Nb
-iq
+Zi
 SL
 rY
 VJ

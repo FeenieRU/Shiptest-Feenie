@@ -29,6 +29,7 @@ ID мода: CELADON_STUFF_ELYSIUM
 ### Изменения *кор кода*
 
 - `code/modules/mob/living.dm`: `proc/overriden_proc`, `var/overriden_var`
+- `icons/obj/clothing/belt_overlays.dmi`: `skimitar`, `skimitar_gold`, `skimitar-silenced`, `skimitar_gold-silenced`
 <!--
   Если вы редактировали какие-либо процедуры или переменные в кор коде,
   они должны быть указаны здесь.
@@ -50,7 +51,7 @@ ID мода: CELADON_STUFF_ELYSIUM
 
 ### Дефайны
 
-- `code/__defines/~mods/example.dm`: `EXAMPLE_SPEED_MULTIPLIER`, `EXAMPLE_SPEED_BASE`
+- `code/__defines/~mod_celadon/example.dm`: `EXAMPLE_SPEED_MULTIPLIER`, `EXAMPLE_SPEED_BASE`
 <!--
   Если требовалось добавить какие-либо дефайны, укажи файлы,
   в которые ты их добавил, а также перечисли имена.
@@ -62,6 +63,8 @@ ID мода: CELADON_STUFF_ELYSIUM
 ### Используемые файлы, не содержащиеся в модпаке
 
 - `mods/_master_files/icons/obj/alien.dmi`
+- `mod_celadon/_storge_icons/icons`
+- `icons/obj/clothing/belt_overlays.dmi`
 <!--
   Будь то немодульный файл или модульный файл, который не содержится в папке,
   принадлежащей этому конкретному моду, он должен быть упомянут здесь.

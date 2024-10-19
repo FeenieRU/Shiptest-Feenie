@@ -31,6 +31,7 @@
 	dna.features["spider_spinneret"] = GLOB.spider_spinneret_list[hex2num(copytext(seed, 11, 12)) % length(GLOB.spider_spinneret_list) + 1]
 	dna.features["kepori_feathers"] = GLOB.kepori_feathers_list[hex2num(copytext(seed, 12, 13)) % length(GLOB.kepori_feathers_list) + 1]
 	dna.features["kepori_body_feathers"] = GLOB.kepori_body_feathers_list[hex2num(copytext(seed, 13, 14)) % length(GLOB.kepori_body_feathers_list) + 1]
+	dna.features["kepori_head_feathers"] = GLOB.kepori_head_feathers_list[hex2num(copytext(seed, 13, 14)) % length(GLOB.kepori_head_feathers_list) + 1]
 	dna.features["vox_head_quills"] = GLOB.vox_head_quills_list[hex2num(copytext(seed, 14, 15)) % length(GLOB.vox_head_quills_list) + 1]
 	dna.features["vox_neck_quills"] = GLOB.vox_neck_quills_list[hex2num(copytext(seed, 15, 16)) % length(GLOB.vox_neck_quills_list) + 1]
 	dna.features["elzu_horns"] = GLOB.elzu_horns_list[hex2num(copytext(seed, 16, 17)) % length(GLOB.elzu_horns_list) + 1]
@@ -50,6 +51,19 @@
 	dna.features["tajara_chest_markings"] = GLOB.tajara_chest_markings_list[hex2num(copytext(seed, 8, 9)) % length(GLOB.tajara_chest_markings_list) + 1]
 	dna.features["tajara_body_markings"] = GLOB.tajara_body_markings_list[hex2num(copytext(seed, 9, 10)) % length(GLOB.tajara_body_markings_list) + 1]
 	dna.features["tajara_tail"] = GLOB.tajara_tail_list[hex2num(copytext(seed, 10, 11)) % length(GLOB.tajara_tail_list) + 1]
+
+	// [CELADON-ADD] - CELADON_RIOL
+	dna.features["riol_ears"] 			= GLOB.riol_ears_list[hex2num(copytext(seed, 2, 3)) % length(GLOB.riol_ears_list) + 1]
+	dna.features["riol_hairs"] 			= GLOB.riol_hairs_list[hex2num(copytext(seed, 3, 4)) % length(GLOB.riol_hairs_list) + 1]
+	dna.features["riol_ears_markings"] 	= GLOB.riol_ears_markings_list[hex2num(copytext(seed, 4, 5)) % length(GLOB.riol_ears_markings_list) + 1]
+	dna.features["riol_head_markings"] 	= GLOB.riol_head_markings_list[hex2num(copytext(seed, 5, 6)) % length(GLOB.riol_head_markings_list) + 1]
+	dna.features["riol_nose_markings"] 	= GLOB.riol_nose_markings_list[hex2num(copytext(seed, 6, 7)) % length(GLOB.riol_nose_markings_list) + 1]
+	dna.features["riol_facial_hairs"] 	= GLOB.riol_facial_hairs_list[hex2num(copytext(seed, 7, 8)) % length(GLOB.riol_facial_hairs_list) + 1]
+	dna.features["riol_chest_markings"] = GLOB.riol_chest_markings_list[hex2num(copytext(seed, 8, 9)) % length(GLOB.riol_chest_markings_list) + 1]
+	dna.features["riol_body_markings"] 	= GLOB.riol_body_markings_list[hex2num(copytext(seed, 9, 10)) % length(GLOB.riol_body_markings_list) + 1]
+	dna.features["riol_tail_markings"] 	= GLOB.riol_tail_markings_list[hex2num(copytext(seed, 10, 11)) % length(GLOB.riol_tail_markings_list) + 1]
+	dna.features["riol_tail"] 			= GLOB.riol_tail_list[hex2num(copytext(seed, 11, 12)) % length(GLOB.riol_tail_list) + 1]
+	dna.features["riol_legs"] 			= GLOB.riol_legs_list[hex2num(copytext(seed, 12, 13)) % length(GLOB.riol_legs_list) + 1]
 	// [/CELADON-ADD]
 
 	if(!species_list)

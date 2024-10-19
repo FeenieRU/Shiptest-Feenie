@@ -27,6 +27,8 @@
 	var/ruin_type
 	/// list of ruins and their target turf, indexed by name
 	var/list/ruin_turfs
+	/// list of ruin templates currently spawned on the planet.
+	var/list/spawned_ruins
 	/// Whether or not the level is currently loading.
 	var/loading = FALSE
 
@@ -137,9 +139,16 @@
 		Rename(planet.name)
 		token.name = "[planet.name]"
 
+	// [CELADON-ADD] - OVERMAP ICON - Это вагабонд насрал
+	token.icon = planet.icon
+	// [/CELADON-ADD]
 	token.icon_state = planet.icon_state
 	token.desc = planet.desc
 	token.color = planet.color
+	// [CELADON-ADD] - OVERMAP ICON - Это вагабонд насрал
+	token.pixel_w = planet.pixel_w
+	token.pixel_z = planet.pixel_z
+	// [/CELADON-ADD]
 	ruin_type = planet.ruin_type
 	default_baseturf = planet.default_baseturf
 	gravity = planet.gravity
@@ -198,6 +207,7 @@
 	mapzone = dynamic_encounter_values[1]
 	reserve_docks = dynamic_encounter_values[2]
 	ruin_turfs = dynamic_encounter_values[3]
+	spawned_ruins = dynamic_encounter_values[4]
 
 	loading = FALSE
 	return TRUE

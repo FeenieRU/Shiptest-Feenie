@@ -1,5 +1,10 @@
 //5.56x45
 
+/obj/projectile/bullet/a556_45
+	name = "5.56x45mm bullet"
+	damage = 25
+	armour_penetration = 20
+
 /obj/projectile/bullet/a556_45/a856
 	name = "5.56x45mm A856 bullet"
 	damage = 30
@@ -19,7 +24,7 @@
 
 /obj/projectile/bullet/a308
 	name = ".308"
-	icon = 'mod_celadon/weapons/icons/ammo/projectiles.dmi'
+	icon = 'mod_celadon/_storge_icons/icons/ammo/projectiles.dmi'
 	icon_state = "bullet"
 	speed = 0.3
 	damage = 30
