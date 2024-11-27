@@ -93,6 +93,12 @@
 		GLOB.surgeries_list += new path()
 	sortList(GLOB.surgeries_list, /proc/cmp_typepaths_asc)
 
+	//[CELADON-ADD] - Vocal barks
+	for(var/path in subtypesof(/datum/bark))
+		var/datum/bark/B = new path()
+		GLOB.bark_list[B.id] = path
+	//[/CELADON-ADD]
+
 	// Hair Gradients - Initialise all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name
 	for(var/path in subtypesof(/datum/sprite_accessory/hair_gradient))
 		var/datum/sprite_accessory/hair_gradient/H = new path()

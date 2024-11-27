@@ -97,6 +97,11 @@ Class Procs:
 
 	hitsound_type = PROJECTILE_HITSOUND_METAL
 
+	//[CELADON-ADD] - Vocal barks
+	vocal_bark_id = "synth"
+	vocal_pitch = 0.6
+	//[/CELADON-ADD]
+
 	var/machine_stat = NONE
 	var/use_power = IDLE_POWER_USE
 		//0 = dont run the auto

@@ -55,6 +55,10 @@ GLOBAL_LIST_EMPTY(elzu_horns_list)
 GLOBAL_LIST_EMPTY(tails_list_elzu)
 GLOBAL_LIST_EMPTY(animated_tails_list_elzu)
 
+//[CELADON-ADD] - Vocal barks
+GLOBAL_LIST_EMPTY(bark_list)
+//[/CELADON-ADD]
+
 GLOBAL_LIST_INIT(color_list_ethereal, list(
 	"Red" = "ff4d4d",
 	"Faint Red" = "ffb3b3",

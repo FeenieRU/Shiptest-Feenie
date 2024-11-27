@@ -119,6 +119,12 @@
 		L[DNA_FACIAL_HAIR_COLOR_BLOCK] = sanitize_hexcolor(H.facial_hair_color)
 		L[DNA_SKIN_TONE_BLOCK] = construct_block(GLOB.skin_tones.Find(H.skin_tone), GLOB.skin_tones.len)
 		L[DNA_EYE_COLOR_BLOCK] = sanitize_hexcolor(H.eye_color)
+		//[CELADON-ADD] - Vocal barks
+		L[DNA_BARK_SOUND_BLOCK] = construct_block(GLOB.bark_list.Find(H.vocal_bark_id), GLOB.bark_list.len)
+		L[DNA_BARK_SPEED_BLOCK] = construct_block(H.vocal_speed * 4, 16)
+		L[DNA_BARK_PITCH_BLOCK] = construct_block(H.vocal_pitch * 30, 48)
+		L[DNA_BARK_VARIANCE_BLOCK] = construct_block(H.vocal_pitch_range * 48, 48)
+		//[/CELADON-ADD]
 
 	for(var/i=1, i<=DNA_UNI_IDENTITY_BLOCKS, i++)
 		if(L[i])
